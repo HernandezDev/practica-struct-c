@@ -17,7 +17,7 @@ int MostarMenu();
 void CargarAlumnos(struct alumno alumnos[], int *NumAlumno);
 void OdenarPromdio(struct alumno alumnos[], int NumAlumno);
 void OrdenarApellido(struct alumno alumnos[], int NumAlumno);
-void MostrarAlumnos(struct alumno alumnos[], int NumAlumno);
+void MostrarAlumnos(struct alumno alumnos[], int NumAlumno, bool recursantes);
 
 
 
@@ -36,14 +36,14 @@ int main()
                 break;
             case 2:
                 OdenarPromdio(alumnos, NumAlumno);
-                MostrarAlumnos(alumnos, NumAlumno);
+                MostrarAlumnos(alumnos, NumAlumno, false);
                 break;
             case 3:
                 OrdenarApellido(alumnos, NumAlumno);
-                MostrarAlumnos(alumnos, NumAlumno);
+                MostrarAlumnos(alumnos, NumAlumno, false);
                 break;
             case 4:
-                //MostrarRecursantes(alumnos, NumAlumno);
+                MostrarAlumnos(alumnos, NumAlumno, true);
                 break;
             case 5:
                 //BuscarDNI(alumnos, NumAlumno);
@@ -205,12 +205,17 @@ void OrdenarApellido(struct alumno alumnos[], int NumAlumno)
     }
 }
 
-void MostrarAlumnos(struct alumno alumnos[], int NumAlumno)
+void MostrarAlumnos(struct alumno alumnos[], int NumAlumno,bool recursantes)
 {
     int i;
     printf("1erPar\t1erRec\t2doPar\t2doRec\tProm\tApellido/Nombre/2doNomre\n");
     for (i = 0; i < NumAlumno; i++)
     {
+        if (recursantes && alumnos[i].promedio >= 4)
+        {
+            continue;
+        }
+        
         printf("%.2f\t", alumnos[i].primer_parcial);
         if(alumnos[i].primer_parcial < 4)
         {
