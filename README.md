@@ -7,6 +7,8 @@ Este proyecto es una aplicación en C para gestionar información de alumnos, in
 - Cargar información de alumnos
 - Mostrar alumnos ordenados por promedio
 - Mostrar alumnos ordenados alfabéticamente por apellido
+- Mostrar alumnos recursantes
+- Buscar alumnos por DNI
 
 ## Requisitos
 
