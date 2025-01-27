@@ -48,7 +48,7 @@ Este proyecto es una aplicación en C para gestionar información de alumnos, in
 
 3. Compila el programa (usando MinGW-w64) con compatibilidad con el charset:
     ```bash
-    gcc -g -finput-charset=UTF-8 -fexec-charset=CP850 main.c -o calificador.exe
+    gcc -finput-charset=UTF-8 -fexec-charset=CP850 main.c -o calificador.exe
     ```
     Asegúrate de reemplazar `CP850` con el número de la página de códigos obtenida en el paso anterior si es diferente.
 
