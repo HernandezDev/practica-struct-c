@@ -10,7 +10,7 @@ Este proyecto es una aplicación en C para gestionar información de alumnos, in
 
 ## Requisitos
 
-- [GCC](https://gcc.gnu.org/) (MinGW-w64 para Windows)
+- [GCC](https://gcc.gnu.org/) ([MinGW-w64](https://www.mingw-w64.org/) para Windows)
 
 ## Uso en Windows
 
