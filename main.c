@@ -43,6 +43,12 @@ int main()
                 MostrarAlumnos(alumnos, NumAlumno);
                 break;
             case 4:
+                //MostrarRecursantes(alumnos, NumAlumno);
+                break;
+            case 5:
+                //BuscarDNI(alumnos, NumAlumno);
+                break;
+            case 6:
                 salir = true;
                 break;
         }
@@ -74,7 +80,9 @@ int MostarMenu()
     printf("1. Cargar Alumnos\n");
     printf("2. Mostrar Alumnos por promedio\n");
     printf("3. Mostrar Alumnos por orden alfabético\n");
-    printf("4. Salir\n");
+    printf("4. Mostrar Recursantes\n");
+    printf("5. Buscar por DNI\n");
+    printf("6. Salir\n");
     printf("Ingrese una opcion: ");
     if(scanf("%d", &opcion)!=1)
     {
