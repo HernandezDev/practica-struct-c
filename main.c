@@ -39,7 +39,7 @@ int main()
                 MostrarAlumnos(alumnos, NumAlumno);
                 break;
             case 3:
-                //OrdenarApellido(alumnos, NumAlumno);
+                OrdenarApellido(alumnos, NumAlumno);
                 MostrarAlumnos(alumnos, NumAlumno);
                 break;
             case 4:
@@ -151,6 +151,46 @@ void OdenarPromdio(struct alumno alumnos[], int NumAlumno)
                 alumnos[i] = alumnos[i + 1];
                 alumnos[i + 1] = aux;
                 ordenado = false;
+            }
+        }
+        NumAlumno--;
+    }
+}
+
+void OrdenarApellido(struct alumno alumnos[], int NumAlumno)
+{
+    bool ordenado = false;
+    while (!ordenado)
+    {
+        ordenado = true; // Asumimos que está ordenado
+        for (int i = 0; i < NumAlumno - 1; i++)
+        {
+            if (strcmp(alumnos[i].apellido, alumnos[i + 1].apellido) > 0)
+            {
+                struct alumno aux = alumnos[i];
+                alumnos[i] = alumnos[i + 1];
+                alumnos[i + 1] = aux;
+                ordenado = false;
+            }
+            else if (strcmp(alumnos[i].apellido, alumnos[i + 1].apellido) == 0)
+            {
+                if (strcmp(alumnos[i].nombre, alumnos[i + 1].nombre) > 0)
+                {
+                    struct alumno aux = alumnos[i];
+                    alumnos[i] = alumnos[i + 1];
+                    alumnos[i + 1] = aux;
+                    ordenado = false;
+                }
+                else if (strcmp(alumnos[i].nombre, alumnos[i + 1].nombre) == 0)
+                {
+                    if (strcmp(alumnos[i].segundo_nombre, alumnos[i + 1].segundo_nombre) > 0)
+                    {
+                        struct alumno aux = alumnos[i];
+                        alumnos[i] = alumnos[i + 1];
+                        alumnos[i + 1] = aux;
+                        ordenado = false;
+                    }
+                }
             }
         }
         NumAlumno--;
