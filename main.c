@@ -18,7 +18,7 @@ void CargarAlumnos(struct alumno alumnos[], int *NumAlumno);
 void OdenarPromdio(struct alumno alumnos[], int NumAlumno);
 void OrdenarApellido(struct alumno alumnos[], int NumAlumno);
 void MostrarAlumnos(struct alumno alumnos[], int NumAlumno, bool recursantes);
-
+void BuscarDNI(struct alumno alumnos[], int NumAlumno);
 
 
 int main()
@@ -46,17 +46,13 @@ int main()
                 MostrarAlumnos(alumnos, NumAlumno, true);
                 break;
             case 5:
-                //BuscarDNI(alumnos, NumAlumno);
+                BuscarDNI(alumnos, NumAlumno);
                 break;
             case 6:
                 salir = true;
                 break;
         }
     }
-    
-
-
-
     return 0;
 }
 
@@ -215,7 +211,6 @@ void MostrarAlumnos(struct alumno alumnos[], int NumAlumno,bool recursantes)
         {
             continue;
         }
-        
         printf("%.2f\t", alumnos[i].primer_parcial);
         if(alumnos[i].primer_parcial < 4)
         {
@@ -236,4 +231,34 @@ void MostrarAlumnos(struct alumno alumnos[], int NumAlumno,bool recursantes)
         }
         printf("%.2f\t%s %s %s\n", alumnos[i].promedio, alumnos[i].apellido, alumnos[i].nombre, alumnos[i].segundo_nombre);
     }
+}
+
+void BuscarDNI(struct alumno alumnos[], int NumAlumno)
+{
+    int dni, i;
+    printf("Ingrese el DNI a buscar: ");
+    dni = CargarNumero();
+    for (i = 0; i < NumAlumno; i++)
+    {
+        if (alumnos[i].dni == dni)
+        {
+            printf("DNI: %d\n", alumnos[i].dni);
+            printf("Apellido: %s\n", alumnos[i].apellido);
+            printf("Nombre: %s\n", alumnos[i].nombre);
+            printf("Segundo nombre: %s\n", alumnos[i].segundo_nombre);
+            printf("1er parcial: %.2f\n", alumnos[i].primer_parcial);
+            if (alumnos[i].primer_parcial < 4)
+            {
+                printf("1er recuperatorio: %.2f\n", alumnos[i].primer_recuperatorio);
+            }
+            printf("2do parcial: %.2f\n", alumnos[i].segundo_parcial);
+            if (alumnos[i].segundo_parcial < 4)
+            {
+                printf("2do recuperatorio: %.2f\n", alumnos[i].segundo_recuperatorio);
+            }
+            printf("Promedio: %.2f\n", alumnos[i].promedio);
+            return;
+        }
+    }
+    printf("No se encontró el DNI\n");
 }
