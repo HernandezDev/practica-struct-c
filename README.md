@@ -1,6 +1,6 @@
 # Practica Struct C
 
-Este proyecto es una practica de  C para gestionar información de alumnos, incluyendo sus datos personales y calificaciones.
+Este proyecto es una practica de  C y en concreto de estruct para gestionar información de alumnos, incluyendo sus datos personales y calificaciones.
 
 ## Características
 
